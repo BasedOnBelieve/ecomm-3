@@ -2,16 +2,9 @@ pipeline {
     agent none
 
     stages {
-       // stage('Clone Code') {
-            agent { label 'build' }
-            steps {
-                git branch: 'master', url: 'https://github.com/BasedOnBelieve/ecomm-3.git'
-            }
-        }//
-
         stage('Run Ansible Playbook') {
             agent { label 'ansible' }
-            steps {
+                steps {
                 git branch: 'main', url: 'https://github.com/BasedOnBelieve/ansible.git'
                 ansiblePlaybook(
                     credentialsId: 'ansible', disableHostKeyChecking: true, inventory: 
