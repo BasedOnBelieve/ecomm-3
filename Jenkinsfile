@@ -2,7 +2,6 @@ pipeline {
     stages {
         stage('Run Ansible Playbook') {
             agent { label 'build' }
-
             steps {
                 // Clone your Ansible repo
                 git branch: 'main', url: 'https://github.com/BasedOnBelieve/ansible.git'
