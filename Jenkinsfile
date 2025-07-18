@@ -1,10 +1,9 @@
 pipeline {
-    agent none
+    agent { label 'ansible' }
 
     stages {
         stage('Run Ansible Playbook') {
-            agent { label 'ansible' }
-                steps {
+            steps {
                 git branch: 'main', url: 'https://github.com/BasedOnBelieve/ansible.git'
                 ansiblePlaybook(
                     credentialsId: 'ansible', disableHostKeyChecking: true, inventory: 
