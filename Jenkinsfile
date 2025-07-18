@@ -1,7 +1,7 @@
 pipeline {
     stages {
         stage('Run Ansible Playbook') {
-            agent { label 'ansible' }
+            agent { label 'build' }
 
             steps {
                 // Clone your Ansible repo
